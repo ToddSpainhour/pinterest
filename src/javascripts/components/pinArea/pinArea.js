@@ -10,8 +10,6 @@ const buildPins = () => {
       domString += '<div class="d-flex flex-wrap">';
       pins.forEach((pin) => {
         domString += pinComponent.pinMaker(pin);
-        // domString += `${arr.boardId}`;
-        // domString += `${arr.imageUrl}`;
       });
       domString += '</div>';
       utils.printToDom('print-user-pin-collection-here', domString);
