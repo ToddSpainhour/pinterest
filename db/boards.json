@@ -2,21 +2,21 @@
 	"board1": {
 		"name": "My cool collection",
 		"description": "Check out all this neat art I've come accross.",
-		"uid": ""
+		"uid": "zj28rx0sINPXCrXsKLXvxil8KLo2"
 	},
 	"board2": {
 		"name": "Stuff to remember",
 		"description": "These things could come in handy.",
-		"uid": ""
+		"uid": "zj28rx0sINPXCrXsKLXvxil8KLo2"
 	},
 	"board3": {
 		"name": "Art inspiration",
 		"description": "Look here for project ideas.",
-		"uid": ""
+		"uid": "12345"
 	},
 	"board4": {
 		"name": "Random Board",
 		"description": "Add whatever.",
-		"uid": ""
+		"uid": "zj28rx0sINPXCrXsKLXvxil8KLo2"
 	}
 }

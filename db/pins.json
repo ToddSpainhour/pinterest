@@ -1,18 +1,18 @@
 {
 	"pin1": {
 		"imageUrl": "https://images.unsplash.com/photo-1516783154360-123b392d0833?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-		"boardId": ""
+		"boardId": "board1"
 	},
 	"pin2": {
 		"imageUrl": "https://www.beyerstudio.com/images/portfolio/FPCM/1.jpg",
-		"boardId": ""
+		"boardId": "board2"
 	},
 	"pin3": {
 		"imageUrl": "https://stlouishomesmag.com/sites/default/files/article-images/booknook_01.jpg",
-		"boardId": ""
+		"boardId": "board1"
 	},
 	"pin4": {
 		"imageUrl": "https://www.architectureartdesigns.com/wp-content/uploads/2014/04/16-Cool-Handmade-Book-Shelf-Storage-Ideas-0-1280x720.jpg",
-		"boardId": ""
+		"boardId": "board3"
 	}
 }
