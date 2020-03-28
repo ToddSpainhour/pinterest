@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import pinArea from '../../components/pinArea/pinArea';
+
 const authDiv = $('#auth');
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const logoutButton = $('#navbar-logout-button');
@@ -14,6 +16,7 @@ const checkLoginStatus = () => {
       authDiv.addClass('hide');
       userPinCollectionDiv.removeClass('hide');
       logoutButton.removeClass('hide');
+      pinArea.buildPins();
     } else {
       // person is NOT logged in
       pinterestGreetingDiv.removeClass('hide');
