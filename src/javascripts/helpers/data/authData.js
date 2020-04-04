@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import pinArea from '../../components/pinArea/pinArea';
+import boardHouse from '../../components/boardHouse/boardHouse';
 
 const authDiv = $('#auth');
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
@@ -19,6 +20,7 @@ const checkLoginStatus = () => {
       boardDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       pinArea.buildPins();
+      boardHouse.buildBoards();
     } else {
       // person is NOT logged in
       pinterestGreetingDiv.removeClass('hide');
