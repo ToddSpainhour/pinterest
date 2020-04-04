@@ -5,6 +5,7 @@ import pinArea from '../../components/pinArea/pinArea';
 
 const authDiv = $('#auth');
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
+const boardDiv = $('#print-boards-here');
 const logoutButton = $('#navbar-logout-button');
 const pinterestGreetingDiv = $('#pinterest-greeting-div');
 
@@ -15,6 +16,7 @@ const checkLoginStatus = () => {
       pinterestGreetingDiv.addClass('hide');
       authDiv.addClass('hide');
       userPinCollectionDiv.removeClass('hide');
+      boardDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       pinArea.buildPins();
     } else {
@@ -22,6 +24,7 @@ const checkLoginStatus = () => {
       pinterestGreetingDiv.removeClass('hide');
       authDiv.removeClass('hide');
       userPinCollectionDiv.addClass('hide');
+      boardDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
   });
