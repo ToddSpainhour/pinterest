@@ -1,5 +1,6 @@
 import boardData from '../../helpers/data/boardData';
 import boardComponent from '../board/board';
+import singleBoard from '../singleBoard/singleBoard';
 import utils from '../../helpers/utils';
 
 const buildBoards = () => {
@@ -13,6 +14,7 @@ const buildBoards = () => {
       });
       domString += '</div>';
       utils.printToDom('print-boards-here', domString);
+      $('body').on('click', '.board-card', singleBoard.buildBoard);
     })
     .catch((err) => console.error('whoops. there is a problem with your getBoards', err));
 };
