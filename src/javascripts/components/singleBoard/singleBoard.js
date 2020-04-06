@@ -13,6 +13,7 @@ const buildBoard = (e) => {
       domString += '<div class="card text-white bg-dark mb-3">';
       domString += `<div class="card-header">${singleBoard.name}</div>`;
       domString += `<div class="card-text">${singleBoard.description}</div>`;
+      domString += `<img src="${singleBoard.imageUrl}" class="card-img-top" alt="...">`;
       domString += '<div class="card-body">';
       domString += '<p class="card-text">add content here</p>';
       domString += '</div>';
@@ -20,7 +21,7 @@ const buildBoard = (e) => {
 
       utils.printToDom('print-single-board-here', domString);
     })
-    .catch((err) => console.log('there is a problem with single board', err));
+    .catch((err) => console.error('there is a problem with single board', err));
 };
 
 export default { buildBoard };
