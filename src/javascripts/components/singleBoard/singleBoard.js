@@ -20,7 +20,7 @@ const buildBoard = (e) => {
 
       utils.printToDom('print-single-board-here', domString);
     })
-    .catch((err) => console.log('there is a problem with single board', err));
+    .catch((err) => console.error('there is a problem with single board', err));
 };
 
 export default { buildBoard };
