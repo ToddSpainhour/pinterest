@@ -4,7 +4,6 @@ import pinComponent from '../pins/pin';
 
 const removePin = (e) => {
   const pinId = e.target.closest('.card').id;
-  console.error('pinId', pinId);
   pinData.deletePin(pinId)
     .then(() => {
       // eslint-disable-next-line no-use-before-define
