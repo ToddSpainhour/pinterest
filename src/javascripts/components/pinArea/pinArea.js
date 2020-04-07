@@ -1,6 +1,7 @@
 import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 import pinComponent from '../pins/pin';
+import singleBoard from '../singleBoard/singleBoard';
 
 const removePin = (e) => {
   const pinId = e.target.closest('.card').id;
@@ -24,6 +25,7 @@ const buildPins = () => {
       domString += '</div>';
       utils.printToDom('print-user-pin-collection-here', domString);
       $('body').on('click', '.delete-pin', removePin);
+      $('body').on('click', '#back-to-boards-button', singleBoard.backToBoards);
     })
     .catch((err) => console.error('getPins broke', err));
 };
