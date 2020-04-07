@@ -17,7 +17,7 @@ const checkLoginStatus = () => {
       // person is logged in
       pinterestGreetingDiv.addClass('hide');
       authDiv.addClass('hide');
-      userPinCollectionDiv.removeClass('hide');
+      userPinCollectionDiv.addClass('hide');
       boardDiv.removeClass('hide');
       singleBoardDiv.removeClass('hide');
       logoutButton.removeClass('hide');

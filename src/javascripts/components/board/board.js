@@ -5,6 +5,7 @@ const boardMaker = (board) => {
   domString += '<div class="card-body">';
   domString += `<h5 class="card-title">${board.name}</h5>`;
   domString += `<p class="card-title">${board.description}</p>`;
+  domString += '<button class="btn btn-primary" id="view-pins-button">View Pins</button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';

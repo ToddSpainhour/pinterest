@@ -14,9 +14,9 @@ const buildBoards = () => {
       });
       domString += '</div>';
       utils.printToDom('print-boards-here', domString);
-      $('body').on('click', '.board-card', singleBoard.buildBoard);
+      $('body').on('click', '#view-pins-button', singleBoard.showBoardPins);
     })
-    .catch((err) => console.error('whoops. there is a problem with your getBoards', err));
+    .catch((err) => console.error('whoops. there is a problem with your getBoards inside your boardHouseJS file', err));
 };
 
 export default { buildBoards };
