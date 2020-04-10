@@ -1,37 +1,41 @@
 import pinData from '../../helpers/data/pinData';
 // import boardData from '../../helpers/data/boardData';
 import utils from '../../helpers/utils';
+// import pinMaker from '../pins/pin';
 
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
-
+// const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const showBoardPins = (e) => {
   const boardIdOnCard = e.target.closest('.board-card').id;
-  // console.error('the id of the board you clicked on: ', boardIdOnCard);
+  // const onlyThisBoardsPins = [];
+
   pinData.getPins()
     .then((pins) => {
       let domString = '';
-      const onlyThisBoardsPins = [];
-
+      console.log(boardIdOnCard);
+      console.log(pins.boardId);
+      console.log(pinData.getPins());
       pins.forEach((pin) => {
         if (boardIdOnCard === pin.boardId) {
-          onlyThisBoardsPins.push(pin);
-          console.log(onlyThisBoardsPins);
-          console.log(pin.boardId);
-          domString += '<h2>hello it worked</h2>';
-          userPinCollectionDiv.removeClass('hide');
-          boardDiv.addClass('hide');
-          console.error('inside the if statement');
-          // utils.printToDom('print-single-board-here', domString);
+          // let domString = '';
+          domString += '<div class="col-3">';
+          domString += `<div class="card" id="${pin.id}">`;
+          domString += `<img src="${pin.imageUrl}" class="card-img-top" alt="...">`;
+          domString += '<div class="card-body">';
+          domString += `<h5 class="card-title">This pin has been included on ${pin.boardId}</h5>`;
+          domString += '<button class="btn btn-danger delete-pin" id="view-pins-button">Remove Pin</button>';
+          domString += '<button class="btn btn-primary" id="back-to-boards-button">Back to Boards</button>';
+          domString += '</div>';
+          domString += '</div>';
+          domString += '</div>';
         } else {
-          userPinCollectionDiv.removeClass('hide');
-          boardDiv.addClass('hide');
-          console.error('inside the else statement');
-          // utils.printToDom('print-single-board-here', domString);
+          console.error('inside the else statement inside showBoardPins');
         }
       });
-      utils.printToDom('print-single-board-here', domString);
+      // console.log(onlyThisBoardsPins);
+      utils.printToDom('print-only-this-boards-pins-here', domString);
     })
     .catch((err) => console.error('catch inside your showBoardPins function', err));
 };
