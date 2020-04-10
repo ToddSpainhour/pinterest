@@ -14,12 +14,10 @@ const showBoardPins = (e) => {
   pinData.getPins()
     .then((pins) => {
       let domString = '';
-      console.log(boardIdOnCard);
-      console.log(pins.boardId);
-      console.log(pinData.getPins());
+      domString += '<div class="d-flex flex-wrap">';
+
       pins.forEach((pin) => {
         if (boardIdOnCard === pin.boardId) {
-          // let domString = '';
           domString += '<div class="col-3">';
           domString += `<div class="card" id="${pin.id}">`;
           domString += `<img src="${pin.imageUrl}" class="card-img-top" alt="...">`;
@@ -31,7 +29,7 @@ const showBoardPins = (e) => {
           domString += '</div>';
           domString += '</div>';
         } else {
-          console.error('inside the else statement inside showBoardPins');
+          // console.error('inside the else statement inside showBoardPins');
         }
       });
       // console.log(onlyThisBoardsPins);
