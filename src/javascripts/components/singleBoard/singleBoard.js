@@ -1,39 +1,63 @@
 import pinData from '../../helpers/data/pinData';
-import boardData from '../../helpers/data/boardData';
-// import utils from '../../helpers/utils';
+// import boardData from '../../helpers/data/boardData';
+import utils from '../../helpers/utils';
 
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
 
-// const showBoardPins = (e) => {
-//   const boardIdOnCard = e.target.closest('.board-card').id;
-//   console.error(`the id of the board you clicked on is "${boardIdOnCard}"`);
-//   console.error('this is your getPinsByBoardId function ', pinData.getPinsbyBoardId());
-//   pinData.getPinsbyBoardId(boardIdOnCard)
-//     .then((singleBoard) => console.log(singleBoard))
-//     .catch((err) => console.error('problem with inside your showBoardPins function in the singleBoard.js file', err));
-// };
-
-// this is the function that runs when the 'view pins' button is clicked
 
 const showBoardPins = (e) => {
   const boardIdOnCard = e.target.closest('.board-card').id;
-  console.error(`the id of the board you clicked on is "${boardIdOnCard}"`);
+  // console.error('the id of the board you clicked on: ', boardIdOnCard);
+  pinData.getPins()
+    .then((pins) => {
+      let domString = '';
+      const onlyThisBoardsPins = [];
 
-  // const x = 2;
-  if (boardIdOnCard === pinData.getPins()) {
-  // if (x === 2) { //  this line it true and runs the if statement
-    console.error('this is inside your if statement');
-    userPinCollectionDiv.removeClass('hide');
-    boardDiv.addClass('hide');
-  } else {
-    userPinCollectionDiv.removeClass('hide');
-    boardDiv.addClass('hide');
-    console.error('boardData.getBoardById returns an object', boardData.getBoardById()); // this one returns an object
-    console.error('else statement inside your showBoardPin function');
-    console.error('pinData.getPins() returns an array', pinData.getPins()); // this one returns an array of all the pins
-  }
+      pins.forEach((pin) => {
+        if (boardIdOnCard === pin.boardId) {
+          onlyThisBoardsPins.push(pin);
+          console.log(onlyThisBoardsPins);
+          console.log(pin.boardId);
+          domString += '<h2>hello it worked</h2>';
+          userPinCollectionDiv.removeClass('hide');
+          boardDiv.addClass('hide');
+          console.error('inside the if statement');
+          // utils.printToDom('print-single-board-here', domString);
+        } else {
+          userPinCollectionDiv.removeClass('hide');
+          boardDiv.addClass('hide');
+          console.error('inside the else statement');
+          // utils.printToDom('print-single-board-here', domString);
+        }
+      });
+      utils.printToDom('print-single-board-here', domString);
+    })
+    .catch((err) => console.error('catch inside your showBoardPins function', err));
 };
+
+
+// this is the function that runs when the 'view pins' button is clicked
+
+// const showBoardPins = (e) => {
+//   const boardIdOnCard = e.target.closest('.board-card').id;
+//   const boardIdAttachedToPinData = pinData.getPins();
+
+//   console.error(`the id of the board you clicked on is "${boardIdOnCard}"`);
+//   console.error('boardIdAttachedToPinData returns...', boardIdAttachedToPinData);
+
+
+//   if (boardIdOnCard === boardIdAttachedToPinData.boardId) {
+//     console.error('this is inside your if statement');
+//     userPinCollectionDiv.removeClass('hide');
+//     boardDiv.addClass('hide');
+//     pinData.getPins();
+//   } else {
+//     console.error('this is inside your else statement');
+//     userPinCollectionDiv.removeClass('hide');
+//     boardDiv.addClass('hide');
+//   }
+// };
 
 
 const backToBoards = () => {
