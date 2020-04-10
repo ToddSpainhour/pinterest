@@ -5,6 +5,7 @@ import utils from '../../helpers/utils';
 
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
+const onlyThisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 // const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const showBoardPins = (e) => {
@@ -13,6 +14,10 @@ const showBoardPins = (e) => {
 
   pinData.getPins()
     .then((pins) => {
+      boardDiv.addClass('hide');
+      onlyThisBoardsPinsDiv.removeClass('hide');
+
+
       let domString = '';
       domString += '<div class="d-flex flex-wrap">';
 
@@ -65,6 +70,7 @@ const showBoardPins = (e) => {
 const backToBoards = () => {
   userPinCollectionDiv.addClass('hide');
   boardDiv.removeClass('hide');
+  onlyThisBoardsPinsDiv.addClass('hide');
 };
 
 export default { backToBoards, showBoardPins };
