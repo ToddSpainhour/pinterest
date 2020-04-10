@@ -7,9 +7,10 @@ import boardHouse from '../../components/boardHouse/boardHouse';
 const authDiv = $('#auth');
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
-const singleBoardDiv = $('#print-single-board-here');
 const logoutButton = $('#navbar-logout-button');
 const pinterestGreetingDiv = $('#pinterest-greeting-div');
+const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
+const singleBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -18,9 +19,10 @@ const checkLoginStatus = () => {
       pinterestGreetingDiv.addClass('hide');
       authDiv.addClass('hide');
       userPinCollectionDiv.addClass('hide');
+      thisBoardsPinsDiv.addClass('hide');
       boardDiv.removeClass('hide');
-      singleBoardDiv.removeClass('hide');
       logoutButton.removeClass('hide');
+      singleBoardsPinsDiv.removeClass('hide');
       pinArea.buildPins();
       boardHouse.buildBoards();
     } else {
@@ -28,8 +30,8 @@ const checkLoginStatus = () => {
       pinterestGreetingDiv.removeClass('hide');
       authDiv.removeClass('hide');
       userPinCollectionDiv.addClass('hide');
+      thisBoardsPinsDiv.addClass('hide');
       boardDiv.addClass('hide');
-      singleBoardDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
   });
