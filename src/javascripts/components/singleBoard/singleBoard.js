@@ -1,16 +1,12 @@
 import pinData from '../../helpers/data/pinData';
-// import boardData from '../../helpers/data/boardData';
 import utils from '../../helpers/utils';
-// import pinMaker from '../pins/pin';
 
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
 const onlyThisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
-// const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const showBoardPins = (e) => {
   const boardIdOnCard = e.target.closest('.board-card').id;
-  // const onlyThisBoardsPins = [];
 
   pinData.getPins()
     .then((pins) => {
@@ -34,7 +30,7 @@ const showBoardPins = (e) => {
           domString += '</div>';
           domString += '</div>';
         } else {
-          // console.error('inside the else statement inside showBoardPins');
+          console.error('inside the else statement inside showBoardPins');
         }
       });
       // console.log(onlyThisBoardsPins);
@@ -44,29 +40,6 @@ const showBoardPins = (e) => {
 };
 
 
-// this is the function that runs when the 'view pins' button is clicked
-
-// const showBoardPins = (e) => {
-//   const boardIdOnCard = e.target.closest('.board-card').id;
-//   const boardIdAttachedToPinData = pinData.getPins();
-
-//   console.error(`the id of the board you clicked on is "${boardIdOnCard}"`);
-//   console.error('boardIdAttachedToPinData returns...', boardIdAttachedToPinData);
-
-
-//   if (boardIdOnCard === boardIdAttachedToPinData.boardId) {
-//     console.error('this is inside your if statement');
-//     userPinCollectionDiv.removeClass('hide');
-//     boardDiv.addClass('hide');
-//     pinData.getPins();
-//   } else {
-//     console.error('this is inside your else statement');
-//     userPinCollectionDiv.removeClass('hide');
-//     boardDiv.addClass('hide');
-//   }
-// };
-
-
 const backToBoards = () => {
   userPinCollectionDiv.addClass('hide');
   boardDiv.removeClass('hide');
@@ -74,13 +47,3 @@ const backToBoards = () => {
 };
 
 export default { backToBoards, showBoardPins };
-
-
-// const showOnlyThisBoardsPins = (e) => {
-//   const boardIdOnCard = e.target.closest('.card').id;
-//   if (boardIdOnCard === pinData.getPins().boardId) {
-//     console.error('it worked');
-//   } else {
-//     console.error('it did not work');
-//   }
-// };
