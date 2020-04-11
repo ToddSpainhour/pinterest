@@ -29,8 +29,6 @@ const showBoardPins = (e) => {
           domString += '</div>';
           domString += '</div>';
           domString += '</div>';
-        } else {
-          console.error('inside the else statement inside showBoardPins');
         }
       });
       // console.log(onlyThisBoardsPins);
