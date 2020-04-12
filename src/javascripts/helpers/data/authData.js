@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import pinPasture from '../../components/pinPasture/pinPasture';
+import boardBuilder from '../../components/boards/boards';
 
 const authDiv = $('#auth');
 const logoutButton = $('#navbar-logout-button');
@@ -17,6 +18,7 @@ const checkLoginStatus = () => {
       pinPastureDiv.removeClass('hide');
       boardsDiv.removeClass('hide');
       pinPasture.buildPins();
+      boardBuilder.buildBoards();
     } else {
       authDiv.removeClass('hide');
       logoutButton.addClass('hide');
