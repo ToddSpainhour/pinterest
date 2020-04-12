@@ -2,8 +2,8 @@
 import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 
-const userPinCollectionDiv = $('#print-user-pin-collection-here');
-const boardDiv = $('#print-boards-here');
+// const userPinCollectionDiv = $('#print-user-pin-collection-here');
+// const boardDiv = $('#print-boards-here');
 const onlyThisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const showBoardPins = (e) => {
@@ -11,7 +11,7 @@ const showBoardPins = (e) => {
 
   pinData.getPins()
     .then((pins) => {
-      boardDiv.addClass('hide');
+      // boardDiv.addClass('hide');
       onlyThisBoardsPinsDiv.removeClass('hide');
       console.error('showBoardPins() inside singleBoard.js just ran');
 
@@ -34,16 +34,16 @@ const showBoardPins = (e) => {
         }
       });
       // console.log(onlyThisBoardsPins);
-      utils.printToDom('print-only-this-boards-pins-here', domString);
+      utils.printToDom('print-user-pin-collection-here', domString); // let's change this div location to the other one
     })
     .catch((err) => console.error('catch inside your showBoardPins function', err));
 };
 
 
 const backToBoards = () => {
-  userPinCollectionDiv.addClass('hide');
-  boardDiv.removeClass('hide');
-  onlyThisBoardsPinsDiv.addClass('hide');
+  // userPinCollectionDiv.addClass('hide');
+  // boardDiv.removeClass('hide');
+  // onlyThisBoardsPinsDiv.addClass('hide');
 };
 
 export default { backToBoards, showBoardPins };

@@ -9,7 +9,7 @@ const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
 const logoutButton = $('#navbar-logout-button');
 const pinterestGreetingDiv = $('#pinterest-greeting-div');
-const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
+const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here'); // this is the same as below
 const singleBoardsPinsDiv = $('#print-only-this-boards-pins-here');
 
 const checkLoginStatus = () => {
@@ -18,8 +18,8 @@ const checkLoginStatus = () => {
       // person is logged in
       pinterestGreetingDiv.addClass('hide');
       authDiv.addClass('hide');
-      userPinCollectionDiv.addClass('hide');
-      thisBoardsPinsDiv.addClass('hide');
+      // userPinCollectionDiv.addClass('hide');
+      // thisBoardsPinsDiv.addClass('hide');
       boardDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       singleBoardsPinsDiv.removeClass('hide');
