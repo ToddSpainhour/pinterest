@@ -8,6 +8,7 @@ const authDiv = $('#auth');
 const logoutButton = $('#navbar-logout-button');
 const pinPastureDiv = $('#print-pins-here');
 const boardsDiv = $('#print-boards-here');
+const singleBoardDiv = $('#print-single-board-here');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -17,6 +18,7 @@ const checkLoginStatus = () => {
       logoutButton.removeClass('hide');
       pinPastureDiv.removeClass('hide');
       boardsDiv.removeClass('hide');
+      singleBoardDiv.removeClass('hide');
       pinPasture.buildPins();
       boardBuilder.buildBoards();
     } else {
@@ -24,6 +26,7 @@ const checkLoginStatus = () => {
       logoutButton.addClass('hide');
       pinPastureDiv.addClass('hide');
       boardsDiv.addClass('hide');
+      singleBoardDiv.addClass('hide');
     }
   });
 };

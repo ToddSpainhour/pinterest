@@ -1,5 +1,6 @@
 import boardData from '../../helpers/data/boardData';
 import boardMaker from '../boardMaker/boardMaker';
+import singleBoard from '../singleBoard/singleBoard';
 import utils from '../../helpers/utils';
 
 const buildBoards = () => {
@@ -13,6 +14,7 @@ const buildBoards = () => {
       });
       domString += '</div>';
       utils.printToDom('print-boards-here', domString);
+      $('body').on('click', '.board-card', singleBoard.buildSingleBoard); // this is the new line
     })
     .catch((err) => console.error('problem with boardMaker inside buildBoards', err));
 };
