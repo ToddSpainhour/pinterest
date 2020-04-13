@@ -30,7 +30,6 @@ const boardsDiv = $('#print-boards-here');
 
 
 const backToBoards = () => {
-  console.error('hi i am inside your backToBoads function');
   pinPastureDiv.addClass('hide');
   boardsDiv.removeClass('hide');
   buildBoards();
@@ -39,8 +38,6 @@ const backToBoards = () => {
 
 const deleteBoard = (e) => {
   const boardId = e.target.closest('.card').id;
-  console.error('boardId', boardId);
-  console.error('hello from inside your delete board function');
   boardData.deleteBoard(boardId)
     .then(() => {
       buildBoards();
