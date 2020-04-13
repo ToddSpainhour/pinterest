@@ -1,22 +1,26 @@
-import boardData from '../../helpers/data/boardData';
+// import boardData from '../../helpers/data/boardData';
+import pinData from '../../helpers/data/pinData';
+import pinBuilder from '../pins/pin';
 import utils from '../../helpers/utils';
 
 const buildSingleBoard = (e) => {
   const boardId = e.target.closest('.card').id;
-  boardData.getBoardById(boardId)
-    .then((response) => {
-      const singleBoard = response.data;
-      console.log(response.data);
-      let domString = '';
-      domString += '<h2 class="text-center">Featured Board</h2>';
-      domString += '<div class="col-12">';
-      domString += '<div class="card text-white bg-dark">';
-      domString += `<div class="card-header">Board Title: ${singleBoard.name}`;
-      domString += '<div class="card-body">';
-      domString += '</div>';
-      domString += '</div>';
+  $('#print-boards-here').addClass('hide');
+  $('#print-single-board-here').removeClass('hide');
+  $('#print-pins-here').removeClass('hide');
 
+  pinData.getPins(boardId)
+    .then((pins) => {
+      // const singleBoard = pins.data;
+      let domString = '';
+      domString += '<div class="d-flex flex-wrap">';
+      pins.forEach((pin) => {
+        domString += pinBuilder.pinMaker(pin);
+      });
+
+      domString += '</div>';
       utils.printToDom('single-board-here', domString);
+      // eslint-disable-next-line no-use-before-define
     })
     .catch((err) => console.error('problem with buildSingleBoard inside singleBoard.js', err));
 };

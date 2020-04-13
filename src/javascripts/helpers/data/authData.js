@@ -16,9 +16,9 @@ const checkLoginStatus = () => {
       // person is logged in
       authDiv.addClass('hide');
       logoutButton.removeClass('hide');
-      pinPastureDiv.removeClass('hide');
+      pinPastureDiv.addClass('hide');
       boardsDiv.removeClass('hide');
-      singleBoardDiv.removeClass('hide');
+      singleBoardDiv.addClass('hide');
       pinPasture.buildPins();
       boardBuilder.buildBoards();
     } else {
