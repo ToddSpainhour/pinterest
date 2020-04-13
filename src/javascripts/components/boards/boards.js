@@ -17,13 +17,17 @@ const buildBoards = () => {
       utils.printToDom('print-boards-here', domString);
       $('body').on('click', '.board-card', singleBoard.buildSingleBoard);
       // eslint-disable-next-line no-use-before-define
-      $('body').on('click', '#back-to-boards-button', backToBoards);
+      // $('body').on('click', '#back-to-boards-button', backToBoards);  // deleted this and moved to pinpasture
+      // eslint-disable-next-line no-use-before-define
+      $('body').on('click', '.delete-board-button', deleteBoard);
     })
     .catch((err) => console.error('problem with boardMaker inside buildBoards', err));
 };
 
+
 const pinPastureDiv = $('#print-pins-here');
 const boardsDiv = $('#print-boards-here');
+
 
 const backToBoards = () => {
   pinPastureDiv.addClass('hide');
@@ -31,4 +35,16 @@ const backToBoards = () => {
   buildBoards();
 };
 
-export default { buildBoards, backToBoards };
+
+const deleteBoard = (e) => {
+  const boardId = e.target.closest('.card').id;
+  boardData.deleteBoard(boardId)
+    .then(() => {
+      buildBoards();
+      utils.printToDom('print-boards-here', '');
+    })
+    .catch((err) => console.error('hmm. could not delete pin', err));
+};
+
+
+export default { buildBoards, backToBoards, deleteBoard };

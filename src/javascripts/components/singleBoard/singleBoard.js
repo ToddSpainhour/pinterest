@@ -6,7 +6,7 @@ import utils from '../../helpers/utils';
 const buildSingleBoard = (e) => {
   const boardId = e.target.closest('.card').id;
   $('#print-boards-here').addClass('hide');
-  $('#print-single-board-here').removeClass('hide');
+  // $('#print-single-board-here').removeClass('hide');
   $('#print-pins-here').removeClass('hide');
 
   pinData.getPins(boardId)
