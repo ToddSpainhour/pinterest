@@ -13,8 +13,20 @@ const buildPins = () => {
       });
       domString += '</div>';
       utils.printToDom('print-pins-here', domString);
+      // eslint-disable-next-line no-use-before-define
+      $('body').on('click', '#remove-pin-button', deletePin);
     })
     .catch((err) => console.error('get pins broke', err));
+};
+
+const deletePin = (e) => {
+  const pinId = e.target.closest('.card').id;
+  pinData.deletePin(pinId)
+    .then(() => {
+      buildPins();
+      utils.printToDom('print-pins-here', '');
+    })
+    .catch((err) => console.error('hmm. could not delete pin', err));
 };
 
 export default { buildPins };
