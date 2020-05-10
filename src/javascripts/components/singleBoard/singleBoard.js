@@ -6,12 +6,13 @@ import pinMaker from '../pins/pin';
 const userPinCollectionDiv = $('#print-user-pin-collection-here');
 const boardDiv = $('#print-boards-here');
 const onlyThisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
+// const createNewPinFormDiv = $('#print-create-new-pin-form-here');
 // const thisBoardsPinsDiv = $('#print-only-this-boards-pins-here');
+
 
 const showBoardPins = (e) => {
   const boardIdOnCard = e.target.closest('.board-card').id;
   // const onlyThisBoardsPins = [];
-
   pinData.getPins()
     .then((pins) => {
       boardDiv.addClass('hide');
