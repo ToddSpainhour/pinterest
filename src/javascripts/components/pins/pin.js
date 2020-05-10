@@ -5,8 +5,8 @@ const pinMaker = (pin) => {
   domString += `<img src="${pin.imageUrl}" class="card-img-top" alt="...">`;
   domString += '<div class="card-body">';
   domString += `<h5 class="card-title">This pin has been included on ${pin.boardId}</h5>`;
-  domString += '<button class="btn btn-danger delete-pin" id="view-pins-button">Remove Pin</button>';
-  domString += '<button class="btn btn-primary" id="back-to-boards-button">Back to Boards</button>';
+  // domString += '<button class="btn btn-danger delete-pin" id="view-pins-button">Remove Pin</button>';
+  // domString += '<button class="btn btn-primary" id="back-to-boards-button">Back to Boards</button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';
