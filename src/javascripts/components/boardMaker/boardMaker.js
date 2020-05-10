@@ -5,8 +5,8 @@ const boardMaker = (board) => {
   domString += `<div class="card-header">${board.name}</div>`;
   domString += '<div class="card-body">';
   domString += `<p class="card-text">${board.description}</p>`;
-  domString += '<button class="btn btn-primary "id"view-pins-button-on-board">View These Pins</button>';
-  domString += '<button class="btn btn-danger delete-board-button" "id"">Delete This Board</button>';
+  domString += '<button class="btn btn-primary "id"view-pins-button-on-board"><i class="fas fa-eye"></i></button>';
+  domString += '<button class="btn btn-danger delete-board-button" "id""><i class="fas fa-trash"></i></button>';
   domString += '</div>';
   domString += '</div>';
   domString += '</div>';

@@ -8,6 +8,7 @@ const buildPins = () => {
     .then((pins) => {
       let domString = '';
       domString += '<h2 class="text-center">Pin Pasture</h2>';
+      domString += '<button class="btn btn-primary" id="back-to-boards-button">Back to Boards</button>';
       domString += '<div class="d-flex flex-wrap">';
       pins.forEach((pin) => {
         domString += pinComponent.pinMaker(pin);
