@@ -19,6 +19,7 @@ const showBoardPins = (e) => {
 
       let domString = '';
       domString += '<button class="btn btn-primary" id="back-to-boards-button">Back to Boards</button>';
+      domString += '<button class="btn btn-success" id="open-add-new-pin-form-button">Add New Pin</button>';
       domString += '<div class="d-flex flex-wrap">';
       pins.forEach((pin) => {
         if (boardIdOnCard === pin.boardId) {
@@ -44,6 +45,24 @@ const showBoardPins = (e) => {
     .catch((err) => console.error('catch inside your showBoardPins function', err));
 };
 
+const backToBoards = () => {
+  userPinCollectionDiv.addClass('hide');
+  boardDiv.removeClass('hide');
+  onlyThisBoardsPinsDiv.addClass('hide');
+};
+
+export default { backToBoards, showBoardPins };
+
+
+// const showOnlyThisBoardsPins = (e) => {
+//   const boardIdOnCard = e.target.closest('.card').id;
+//   if (boardIdOnCard === pinData.getPins().boardId) {
+//     console.error('it worked');
+//   } else {
+//     console.error('it did not work');
+//   }
+// };
+
 
 // this is the function that runs when the 'view pins' button is clicked
 
@@ -64,24 +83,5 @@ const showBoardPins = (e) => {
 //     console.error('this is inside your else statement');
 //     userPinCollectionDiv.removeClass('hide');
 //     boardDiv.addClass('hide');
-//   }
-// };
-
-
-const backToBoards = () => {
-  userPinCollectionDiv.addClass('hide');
-  boardDiv.removeClass('hide');
-  onlyThisBoardsPinsDiv.addClass('hide');
-};
-
-export default { backToBoards, showBoardPins };
-
-
-// const showOnlyThisBoardsPins = (e) => {
-//   const boardIdOnCard = e.target.closest('.card').id;
-//   if (boardIdOnCard === pinData.getPins().boardId) {
-//     console.error('it worked');
-//   } else {
-//     console.error('it did not work');
 //   }
 // };
