@@ -37,7 +37,8 @@ const buildPins = () => {
 
 const createNewPin = (e) => {
   e.preventDefault();
-  console.error('you just fired off the createNewPin function which will eventually send it to firebase');
+  const newPinUrl = $('#user-entered-image-url').val();
+  console.error('you just added this in the url area', newPinUrl);
   createNewPinFormDiv.addClass('hide');
 };
 
