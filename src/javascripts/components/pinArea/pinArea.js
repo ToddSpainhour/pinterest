@@ -4,6 +4,7 @@ import pinComponent from '../pins/pin';
 import singleBoard from '../singleBoard/singleBoard';
 import pinForm from '../createPin/createPin';
 
+
 const createNewPinFormDiv = $('#print-create-new-pin-form-here');
 
 
@@ -29,8 +30,6 @@ const buildPins = () => {
       });
       domString += '</div>';
       utils.printToDom('print-user-pin-collection-here', domString);
-      // $('body').on('click', '.delete-pin', removePin);
-      // $('body').on('click', '#back-to-boards-button', singleBoard.backToBoards);
     })
     .catch((err) => console.error('getPins broke', err));
 };
@@ -39,7 +38,6 @@ const buildPins = () => {
 const createNewPin = (e) => {
   e.preventDefault();
   console.error('you just fired off the createNewPin function which will eventually send it to firebase');
-  // add class hide to the form div
   createNewPinFormDiv.addClass('hide');
 };
 

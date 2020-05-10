@@ -4,7 +4,6 @@ const createNewPinFormDiv = $('#print-create-new-pin-form-here');
 
 
 const openAddNewPinForm = () => {
-  console.error('you just clicked your add new pin button');
   createNewPinFormDiv.removeClass('hide');
   let domString = '';
   domString += '<form>';
