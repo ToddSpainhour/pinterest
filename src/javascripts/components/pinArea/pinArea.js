@@ -2,6 +2,11 @@ import pinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 import pinComponent from '../pins/pin';
 import singleBoard from '../singleBoard/singleBoard';
+import pinForm from '../createPin/createPin';
+
+
+const createNewPinFormDiv = $('#print-create-new-pin-form-here');
+
 
 const removePin = (e) => {
   const pinId = e.target.closest('.card').id;
@@ -12,6 +17,7 @@ const removePin = (e) => {
     })
     .catch((err) => console.error('could not delete pin', err));
 };
+
 
 const buildPins = () => {
   pinData.getPins()
@@ -24,10 +30,24 @@ const buildPins = () => {
       });
       domString += '</div>';
       utils.printToDom('print-user-pin-collection-here', domString);
-      $('body').on('click', '.delete-pin', removePin);
-      $('body').on('click', '#back-to-boards-button', singleBoard.backToBoards);
     })
     .catch((err) => console.error('getPins broke', err));
 };
 
-export default { buildPins };
+
+const createNewPin = (e) => {
+  e.preventDefault();
+  const newPinUrl = $('#user-entered-image-url').val();
+  console.error('you just added this in the url area', newPinUrl);
+  createNewPinFormDiv.addClass('hide');
+};
+
+
+const pinClickEvents = () => {
+  $('body').on('click', '.delete-pin', removePin);
+  $('body').on('click', '#back-to-boards-button', singleBoard.backToBoards);
+  $('body').on('click', '#open-add-new-pin-form-button', pinForm.openAddNewPinForm);
+  $('body').on('click', '#submit-new-pin-form-button', createNewPin);
+};
+
+export default { buildPins, createNewPin, pinClickEvents };

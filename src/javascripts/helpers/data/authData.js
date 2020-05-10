@@ -25,6 +25,7 @@ const checkLoginStatus = () => {
       singleBoardsPinsDiv.removeClass('hide');
       pinArea.buildPins();
       boardHouse.buildBoards();
+      pinArea.pinClickEvents();
     } else {
       // person is NOT logged in
       pinterestGreetingDiv.removeClass('hide');
